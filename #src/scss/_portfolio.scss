@@ -1,0 +1,113 @@
+.portfolio{
+   &__gallery{
+      display: grid;
+      grid-template: 1fr / 1fr 1fr;
+      grid-gap: 10px;
+      @media (max-width: 520px) {
+         grid-template: 1fr / 1fr;
+      }
+   }
+   &__title{
+      @extend .about__title;
+   }
+   &__item{
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.342);
+      img{
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+      }
+      &::before{
+         position: absolute;
+         content: '';
+         width: 100%;
+         height: 0px;
+         left: 0px;
+         top: 0px;
+         transition: all .3s ease;
+         background-color: rgba(88, 88, 88, 0.63);
+      }
+      &:hover::before{
+         height: 100%;
+      }
+      &:hover .portfolio__btn{
+         top: 50%;
+         opacity: 1;
+      }
+   }
+   &__description{
+      position: absolute;
+      top: 50%;
+      height: 0;
+      width: 100%;
+      overflow: hidden;
+      transition: all .3s ease;
+      opacity: 0;
+   }
+   &__description--active{
+      position: absolute;
+      opacity: 1;
+      top: 0px;
+      left: 0px;
+      padding: 20px !important;
+      overflow: auto;
+      height: 100%;
+      background-color: rgb(221, 221, 221);
+      line-height: 20px;
+      font-size: 18px;
+      transition: all .3s ease;
+      p{
+         margin-bottom: 60px;
+      }
+      @media (max-width: 768px) {
+         position: fixed;
+         z-index: 100;
+         top: 60px;
+         left: 0px;
+         right: 0px;
+         padding: 40px;
+      }
+   }
+   &__btn{
+      position: absolute !important;
+      left: 50%;
+      margin-top: 0px !important;
+      transform: translate(-50% , -50%) !important;
+      @extend .form__button;
+      background-color: rgba(252, 252, 252, 0.466);
+      opacity: 0;
+      top: -100%;
+      transition: all .3s ease;
+      &:hover{
+         background-color: rgba(255, 255, 255, 0.719);
+      }
+   }
+   &__close{
+      @extend .general__button;
+      width: 30% !important;
+      margin: 20px auto;
+   }
+   &__list{
+      li{
+         &:last-child{
+            margin-bottom: 15px;
+         }
+         &::before{
+            content: '*';
+            position: relative;
+            top: 3px;
+            color: rgba(128, 128, 128, 0.699);
+         }
+         a{
+            color: rgba(128, 128, 128, 0.699);
+            transition: all .3s ease;
+            &:hover{
+               color: gray;
+            }
+         }
+      }
+   }
+}

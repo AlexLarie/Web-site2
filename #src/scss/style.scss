@@ -1,0 +1,15 @@
+@import 'nullstyle';
+@import 'header';
+@import 'main';
+@import 'about';
+@import 'portfolio';
+@import 'contacts';
+
+.color__change{
+   background-color: black !important;
+}
+.color__change2{
+   background: rgb(58, 58, 58) ;
+   color: rgb(199, 199, 199) !important;
+   transition: left .3s ease, right .3s ease, top .3s ease, bottom .3s ease, box-shadow .3s ease , opacity .2s ease ,background .3s ease , height .3s ease, width .3s ease;
+}
